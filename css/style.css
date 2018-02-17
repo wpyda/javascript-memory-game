@@ -1,0 +1,14 @@
+body
+{
+    margin: 0;
+    background-color: #26282E;
+    color: #209781;
+    font-family: 'Lobster', sans-serif;
+    font-size: 28px;
+}
+
+a,
+a:visited,
+a:active { color: #209781; text-decoration: none; }
+
+a:hover { color: #E9B64A; }
