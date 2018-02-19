@@ -37,6 +37,14 @@ const game = {
         }
     },
 
+    deleteCards() {
+
+    },
+
+    resetCards() {
+
+    },
+
     startGame() {
         // clear board
         this.divBoard = document.querySelector('.game-board');
