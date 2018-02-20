@@ -33,7 +33,7 @@ h1 { margin: 0; }
 }
 
 .card:hover {
-    border-color: #E9B64A;
+    border-color: #9b2222;
     filter: brightness(100%);
 }
 

@@ -26,6 +26,8 @@ const game = {
             if (!this.pickedCards[0] || (this.pickedCards[0].dataset.index !== e.target.dataset.index)) {
                 this.pickedCards.push(e.target);
                 e.target.style.backgroundImage = 'url(img/' + this.cardsImg[e.target.dataset.cardType] + ')';
+                e.target.style.borderColor = '#9b2222';
+                e.target.style.filter = 'brightness(100%)';
             }
 
             if (this.pickedCards.length === 2) {
@@ -34,7 +36,7 @@ const game = {
                 if (this.pickedCards[0].dataset.cardType === this.pickedCards[1].dataset.cardType) {
                     setTimeout(this.deleteCards.bind(this), 500);
                 } else {
-                    setTimeout(this.resetCards.bind(this), 500);
+                    setTimeout(this.resetCards.bind(this), 600);
                 }
 
                 this.moveCount++;
@@ -60,7 +62,11 @@ const game = {
 
     // reseting cards after 'wrong pick'
     resetCards() {
-        this.pickedCards.forEach((el) => { el.style.backgroundImage = 'url(img/kunai.png)' });
+        this.pickedCards.forEach((el) => {
+            el.style.backgroundImage = 'url(img/kunai.png)';
+            el.style.borderColor = '';
+            el.style.filter = 'brightness(70%)';
+        });
         this.canClick = true;
         this.pickedCards = [];
     },
