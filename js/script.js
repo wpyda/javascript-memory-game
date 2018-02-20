@@ -16,7 +16,7 @@ const game = {
         "swords-ninja.png",
         "yellow-ninja.png",
     ],
-    canClick: true,
+    canClick: true, // select 1st or 2nd card, no more
 
     cardClick(e) {
         if (this.canClick) {
@@ -29,20 +29,26 @@ const game = {
 
             if (this.pickedCards.length === 2) {
                 if (this.pickedCards[0].dataset.cardType === this.pickedCards[1].dataset.cardType) {
-                    setTimeout(this.deleteCards.bind(this), 500)
+                    setTimeout(this.deleteCards.bind(this), 500);
                 } else {
-                    setTimeout(this.resetCards.bind(this), 500)
+                    setTimeout(this.resetCards.bind(this), 500);
                 }
             }
         }
     },
 
     deleteCards() {
-
+        this.pickedCards.forEach((el) => {
+            el.remove()
+        });
+        this.canClick = true;
+        this.pickedCards = [];
     },
 
     resetCards() {
-
+        this.pickedCards.forEach((el) => {el.style.backgroundImage = 'url(img/ninja-shuriken.svg)'});
+        this.canClick = true;
+        this.pickedCards = [];
     },
 
     startGame() {
@@ -83,10 +89,13 @@ const game = {
             card.dataset.cardType = this.shuffledCards[i];
             card.dataset.index = i;
 
-            card.addEventListener('click', this.cardClick.bind(this))
+            card.style.left = 5 + (card.offsetWidth+10) * (i%this.cardsInRow) + 'px';
+            card.style.top = 5 + (card.offsetHeight+10) * (Math.floor(i/this.cardsInRow)) + 'px';
+
+            card.addEventListener('click', this.cardClick.bind(this));
         }
     },
 
-}
+};
 
-game.startGame()
+game.startGame();
