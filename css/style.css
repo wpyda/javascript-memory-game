@@ -36,3 +36,10 @@ h1 { margin: 0; }
     border-color: #E9B64A;
     filter: brightness(100%);
 }
+
+.winInfo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}

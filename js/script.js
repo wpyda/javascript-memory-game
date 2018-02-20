@@ -17,6 +17,7 @@ const game = {
         "yellow-ninja.png",
     ],
     canClick: true, // select 1st or 2nd card, no more
+    cardPairs: 0, // how many pairs player already 'found'
 
     cardClick(e) {
         if (this.canClick) {
@@ -28,36 +29,48 @@ const game = {
             }
 
             if (this.pickedCards.length === 2) {
+                this.canClick = false;
+
                 if (this.pickedCards[0].dataset.cardType === this.pickedCards[1].dataset.cardType) {
                     setTimeout(this.deleteCards.bind(this), 500);
                 } else {
                     setTimeout(this.resetCards.bind(this), 500);
                 }
+
+                this.moveCount++;
+                this.divScore.innerHTML = 'Your moves: ' + this.moveCount;
             }
         }
     },
 
     deleteCards() {
-        this.pickedCards.forEach((el) => {
-            el.remove()
-        });
+        this.pickedCards.forEach((el) => { el.remove() });
         this.canClick = true;
         this.pickedCards = [];
+
+        this.cardPairs++;
+        if (this.cardPairs >= this.cardsCount / 2) {
+            const winInfo = document.createElement('div');
+            winInfo.innerHTML = 'You won!';
+            winInfo.classList.add('winInfo');
+            document.querySelector('.game-board').appendChild(winInfo);
+        }
     },
 
     resetCards() {
-        this.pickedCards.forEach((el) => {el.style.backgroundImage = 'url(img/ninja-shuriken.svg)'});
+        this.pickedCards.forEach((el) => { el.style.backgroundImage = 'url(img/ninja-shuriken.svg)' });
         this.canClick = true;
         this.pickedCards = [];
     },
 
     startGame() {
-        // clear board
         this.divBoard = document.querySelector('.game-board');
+        this.divScore = document.querySelector('.game-score');
+
+        // clear board
         this.divBoard.innerHTML = '';
 
         // clear moves
-        this.divScore = document.querySelector('.game-score');
         this.divScore.innerHTML = '';
 
         // clear variables
@@ -65,6 +78,7 @@ const game = {
         this.pickedCards = [];
         this.moveCount = 0;
         this.canClick = true;
+        this.cardPairs = 0;
 
         // generate new array of pair of cards numbers
         for (let i = 0; i < this.cardsCount; i++) {
@@ -89,8 +103,8 @@ const game = {
             card.dataset.cardType = this.shuffledCards[i];
             card.dataset.index = i;
 
-            card.style.left = 5 + (card.offsetWidth+10) * (i%this.cardsInRow) + 'px';
-            card.style.top = 5 + (card.offsetHeight+10) * (Math.floor(i/this.cardsInRow)) + 'px';
+            card.style.left = 5 + (card.offsetWidth + 10) * (i % this.cardsInRow) + 'px';
+            card.style.top = 5 + (card.offsetHeight + 10) * (Math.floor(i / this.cardsInRow)) + 'px';
 
             card.addEventListener('click', this.cardClick.bind(this));
         }
@@ -98,4 +112,4 @@ const game = {
 
 };
 
-game.startGame();
+document.addEventListener('DOMContentLoaded', () => { game.startGame() });
