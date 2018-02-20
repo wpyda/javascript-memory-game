@@ -1,10 +1,10 @@
 const game = {
-    divBoard: null, // div- plansza
-    divMoves: null, // div- ruchy/wynik (counter) - 'divMoves'
-    cardsCount: 16, // liczba kart ogółem
-    cardsInRow: 4, // liczba kart w rzędzie
-    shuffledCards: [], // wymieszane karty - 'tiles'
-    pickedCards: [], // zaznaczone/aktywne karty | zawsze bedzie 0, 1 lub 2- 'tilesChecked'
+    divBoard: null,
+    divMoves: null, // div for moves counter
+    cardsCount: 16,
+    cardsInRow: 4,
+    shuffledCards: [], // mixed cards
+    pickedCards: [], // active cards | always 0, 1 or 2
     moveCount: 0,
     cardsImg: [
         "cartman-ninja.png",
@@ -43,6 +43,7 @@ const game = {
         }
     },
 
+    // removing cards from the board after 'correct pick'
     deleteCards() {
         this.pickedCards.forEach((el) => { el.remove() });
         this.canClick = true;
@@ -57,8 +58,9 @@ const game = {
         }
     },
 
+    // reseting cards after 'wrong pick'
     resetCards() {
-        this.pickedCards.forEach((el) => { el.style.backgroundImage = 'url(img/ninja-shuriken.svg)' });
+        this.pickedCards.forEach((el) => { el.style.backgroundImage = 'url(img/kunai.png)' });
         this.canClick = true;
         this.pickedCards = [];
     },
@@ -103,8 +105,10 @@ const game = {
             card.dataset.cardType = this.shuffledCards[i];
             card.dataset.index = i;
 
+            // adding styles to cards
             card.style.left = 5 + (card.offsetWidth + 10) * (i % this.cardsInRow) + 'px';
             card.style.top = 5 + (card.offsetHeight + 10) * (Math.floor(i / this.cardsInRow)) + 'px';
+            card.style.margin = '2vw';
 
             card.addEventListener('click', this.cardClick.bind(this));
         }
