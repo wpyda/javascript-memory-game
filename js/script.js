@@ -21,6 +21,7 @@ const game = {
 
     cardClick(e) {
         if (this.canClick) {
+
             // check if there is a picked card or index of picked card !== index of current event ->
             // -> prevents double click on one card
             if (!this.pickedCards[0] || (this.pickedCards[0].dataset.index !== e.target.dataset.index)) {

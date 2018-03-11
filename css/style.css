@@ -1,5 +1,4 @@
-body
-{
+body {
     margin: 0;
     background-color: #26282E;
     color: #209781;
@@ -64,4 +63,21 @@ h1 { margin: 0; }
 .flip-horizontal-bottom {
     -webkit-animation: flip-horizontal-bottom 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
     animation: flip-horizontal-bottom 0.4s cubic-bezier(0.455, 0.030, 0.515, 0.955) both;
+}
+
+/* ----- Media Queries ----- */
+
+@media only screen and (max-width : 321px) {
+    h1 { font-size: 1em; }
+    .game-score { font-size: 18px; }
+    .game-board {
+        width: 70vw;
+        height: 70vw;
+        text-align: center;
+    }
+    .card {
+        width: 18%;
+        height: 18%;
+        border: 1px solid #51C8B2;
+    }
 }
