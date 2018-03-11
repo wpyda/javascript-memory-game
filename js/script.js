@@ -28,6 +28,9 @@ const game = {
                 e.target.style.backgroundImage = 'url(img/' + this.cardsImg[e.target.dataset.cardType] + ')';
                 e.target.style.borderColor = '#9b2222';
                 e.target.style.filter = 'brightness(100%)';
+
+                // animation code
+                e.target.classList.add('flip-horizontal-bottom');
             }
 
             if (this.pickedCards.length === 2) {
@@ -47,7 +50,13 @@ const game = {
 
     // removing cards from the board after 'correct pick'
     deleteCards() {
-        this.pickedCards.forEach((el) => { el.remove() });
+        this.pickedCards.forEach((el) => {
+            el.remove();
+
+            // animation code
+            el.classList.remove('flip-horizontal-bottom');
+        });
+
         this.canClick = true;
         this.pickedCards = [];
 
@@ -66,6 +75,9 @@ const game = {
             el.style.backgroundImage = 'url(img/kunai.png)';
             el.style.borderColor = '';
             el.style.filter = 'brightness(70%)';
+
+            // animation code
+            el.classList.remove('flip-horizontal-bottom');
         });
         this.canClick = true;
         this.pickedCards = [];
