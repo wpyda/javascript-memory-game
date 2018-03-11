@@ -30,16 +30,16 @@ const game = {
                 e.target.style.filter = 'brightness(100%)';
 
                 // animation code
-                e.target.classList.add('flip-horizontal-bottom');
+                e.target.classList.toggle('flip-horizontal-bottom');
             }
 
             if (this.pickedCards.length === 2) {
                 this.canClick = false;
 
                 if (this.pickedCards[0].dataset.cardType === this.pickedCards[1].dataset.cardType) {
-                    setTimeout(this.deleteCards.bind(this), 500);
+                    setTimeout(this.deleteCards.bind(this), 800);
                 } else {
-                    setTimeout(this.resetCards.bind(this), 600);
+                    setTimeout(this.resetCards.bind(this), 800);
                 }
 
                 this.moveCount++;
@@ -52,9 +52,6 @@ const game = {
     deleteCards() {
         this.pickedCards.forEach((el) => {
             el.remove();
-
-            // animation code
-            el.classList.remove('flip-horizontal-bottom');
         });
 
         this.canClick = true;
@@ -77,7 +74,7 @@ const game = {
             el.style.filter = 'brightness(70%)';
 
             // animation code
-            el.classList.remove('flip-horizontal-bottom');
+            el.classList.toggle('flip-horizontal-bottom');
         });
         this.canClick = true;
         this.pickedCards = [];

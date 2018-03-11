@@ -49,16 +49,7 @@ h1 { margin: 0; }
  * animation flip-horizontal-bottom
  * ----------------------------------------
  */
-@-webkit-keyframes flip-horizontal-bottom {
-    0% {
-        -webkit-transform: rotateX(0);
-        transform: rotateX(0);
-    }
-    100% {
-        -webkit-transform: rotateX(-180deg);
-        transform: rotateX(-180deg);
-    }
-}
+
 @keyframes flip-horizontal-bottom {
     0% {
         -webkit-transform: rotateX(0);
