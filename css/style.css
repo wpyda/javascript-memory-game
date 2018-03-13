@@ -66,8 +66,6 @@ h1 { margin: 0; }
 }
 
 /* ----- Media Queries ----- */
-@media only screen and (max-width : 1920px) {}
-
 @media only screen and (max-width : 1366px) {
     .card { border: 3px solid #51C8B2; }
 }
@@ -84,7 +82,6 @@ h1 { margin: 0; }
 @media only screen and (max-width : 480px) {
     h1 { font-size: 1.8em; }
     .game-score { font-size: 22px; }
-    .game-board { width: 60vw; height: 60vw; }
     .card { width: 19%; height: 19%; }
 }
 
