@@ -18,6 +18,7 @@ const game = {
     ],
     canClick: true, // select 1st or 2nd card, no more
     cardPairs: 0, // how many pairs player already 'found'
+    startScreen: null, // start screen with "start" and "high scores" buttons
 
     cardClick(e) {
         if (this.canClick) {
@@ -82,6 +83,9 @@ const game = {
     },
 
     startGame() {
+
+        // this.startScreen = null;
+
         this.divBoard = document.querySelector('.game-board');
         this.divScore = document.querySelector('.game-score');
 
@@ -129,6 +133,25 @@ const game = {
             card.addEventListener('click', this.cardClick.bind(this));
         }
     },
+
+    // startScreens() {
+    //     this.startScreen = document.createElement('div');
+    //     this.startScreen.classList.add('startScreen');
+    //
+    //     const startBtn = document.createElement('button');
+    //     startBtn.innerText = 'Start Game';
+    //     startBtn.classList.add('startScreenButton');
+    //     this.startScreen.appendChild(startBtn);
+    //
+    //     startBtn.addEventListener('click', console.log(this.startGame));
+    //
+    //     const scoresBtn = document.createElement('button');
+    //     scoresBtn.innerText = 'High Scores';
+    //     scoresBtn.classList.add('scoresScreenButton');
+    //     this.startScreen.appendChild(scoresBtn);
+    //
+    //     document.body.appendChild(this.startScreen);
+    // },
 
 };
 

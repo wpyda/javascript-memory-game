@@ -9,6 +9,8 @@ body {
 
 h1 { margin: 0; }
 
+/*.game { display: none; }*/
+
 .game-board {
     margin: 0 auto;
     overflow: hidden;
@@ -41,6 +43,29 @@ h1 { margin: 0; }
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
+}
+
+.startScreen {
+    height: 100vw;
+    width: 100vw;
+    background-color: grey;
+    display: block;
+}
+
+.startScreenButton, .scoresScreenButton {
+    display: block;
+    position: absolute;
+    transform: translate(-50%, -50%);
+}
+
+.startScreenButton {
+    top: 20%;
+    left: 50%;
+}
+
+.scoresScreenButton {
+    top: 30%;
+    left: 50%;
 }
 
 /**
