@@ -67,25 +67,23 @@ h1 { margin: 0; }
 
 /* ----- Media Queries ----- */
 @media only screen and (max-width : 1920px) {}
+
 @media only screen and (max-width : 1366px) {}
-@media only screen and (max-width : 1024px) {}
+
+@media only screen and (max-width : 1024px) {
+    .game-board { width: 53vw; height: 53vw; }
+    .card { border: 2px solid #51C8B2; }
+}
 
 @media only screen and (max-width : 768px) {
     .game-board { width: 60vw; height: 60vw; }
-    .card {
-        border: 2px solid #51C8B2;
-    }
 }
 
 @media only screen and (max-width : 480px) {
     h1 { font-size: 1.8em; }
     .game-score { font-size: 22px; }
     .game-board { width: 60vw; height: 60vw; }
-    .card {
-        width: 19%;
-        height: 19%;
-        border: 2px solid #51C8B2;
-    }
+    .card { width: 19%; height: 19%; }
 }
 
 @media only screen and (max-width : 320px) {
