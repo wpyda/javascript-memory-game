@@ -71,7 +71,7 @@ const game = {
     // reseting cards after 'wrong pick'
     resetCards() {
         this.pickedCards.forEach((el) => {
-            el.style.backgroundImage = 'url(img/kunai.png)';
+            el.style.backgroundImage = 'url(img/white-ninja.png)';
             el.style.borderColor = '';
             el.style.filter = 'brightness(70%)';
 
