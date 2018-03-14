@@ -62,7 +62,7 @@ const game = {
         this.cardPairs++;
         if (this.cardPairs >= this.cardsCount / 2) {
             const winInfo = document.createElement('div');
-            winInfo.innerHTML = 'You won!';
+            winInfo.innerHTML = 'You won!' //TODO + '<br/>' + '<button onclick="this.startGame()">Restart Game</button>';
             winInfo.classList.add('winInfo');
             document.querySelector('.game-board').appendChild(winInfo);
         }
@@ -84,6 +84,7 @@ const game = {
 
     startGame() {
 
+        // TODO
         // this.startScreen = null;
 
         this.divBoard = document.querySelector('.game-board');
@@ -134,6 +135,7 @@ const game = {
         }
     },
 
+    //TODO
     // startScreens() {
     //     this.startScreen = document.createElement('div');
     //     this.startScreen.classList.add('startScreen');
