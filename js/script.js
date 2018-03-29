@@ -62,7 +62,7 @@ const game = {
         this.cardPairs++;
         if (this.cardPairs >= this.cardsCount / 2) {
             const winInfo = document.createElement('div');
-            winInfo.innerHTML = 'You won!' //TODO + '<br/>' + '<button onclick="this.startGame()">Restart Game</button>';
+            winInfo.innerHTML = 'You won!' + '<br/>' + '<button onclick="window.location.reload()">Restart Game</button>';
             winInfo.classList.add('winInfo');
             document.querySelector('.game-board').appendChild(winInfo);
         }
