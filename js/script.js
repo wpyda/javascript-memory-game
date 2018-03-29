@@ -62,7 +62,8 @@ const game = {
         this.cardPairs++;
         if (this.cardPairs >= this.cardsCount / 2) {
             const winInfo = document.createElement('div');
-            winInfo.innerHTML = 'You won!' + '<br/>' + '<button onclick="window.location.reload()">Restart Game</button>';
+            winInfo.innerHTML = 'You won!' + '<br/>' +
+                '<button class="restart-btn" onclick="window.location.reload()">Restart Game</button>'; //TODO no reload function
             winInfo.classList.add('winInfo');
             document.querySelector('.game-board').appendChild(winInfo);
         }
